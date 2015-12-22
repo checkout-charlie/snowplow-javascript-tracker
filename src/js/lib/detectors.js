@@ -114,7 +114,7 @@
 	 * @return {number} 32-bit positive integer hash 
 	 */
 	object.detectSignature = function(hashSeed) {
-	    fingerprintjs2.get(function(result, components){
+	      new fingerprintjs2().get(function(result, components){
 	        console.log(result); //a hash, representing your device fingerprint
 	        console.log(components); // an array of FP components
 	        return result;
