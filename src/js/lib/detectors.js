@@ -39,6 +39,7 @@
 		murmurhash3_32_gc = require('murmurhash').v3,
 		tz = require('jstimezonedetect').jstz.determine(),
 		cookie = require('browser-cookie-lite'),
+		fingerprintjs2 = require('fingerprintjs2'),
 
 		object = typeof exports !== 'undefined' ? exports : this, // For eventual node.js environment support
 		
@@ -113,7 +114,12 @@
 	 * @return {number} 32-bit positive integer hash 
 	 */
 	object.detectSignature = function(hashSeed) {
-
+	    new Fingerprint2().get(function(result, components){
+	        console.log(result); //a hash, representing your device fingerprint
+	        console.log(components); // an array of FP components
+	        return result;
+	      });
+        /**
 		var fingerprint = [
 			navigatorAlias.userAgent,
 			[ screenAlias.height, screenAlias.width, screenAlias.colorDepth ].join("x"),
@@ -136,6 +142,7 @@
 			}
 		}
 		return murmurhash3_32_gc(fingerprint.join("###") + "###" + plugins.sort().join(";"), hashSeed);
+		**/
 	};
 
 	/*
