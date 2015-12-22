@@ -169,9 +169,6 @@
 			// Life of the session cookie (in seconds)
 			configSessionCookieTimeout = argmap.hasOwnProperty('sessionCookieTimeout') ? argmap.sessionCookieTimeout : 1800, // 30 minutes
 
-			// Default hash seed for MurmurHash3 in detectors.detectSignature
-			configUserFingerprintHashSeed = argmap.hasOwnProperty('userFingerprintSeed') ? argmap.userFingerprintSeed : 123412414,
-
 			// Document character set
 			documentCharset = documentAlias.characterSet || documentAlias.charset,
 
@@ -191,7 +188,7 @@
 			browserFeatures = detectors.detectBrowserFeatures(configUseCookies, getSnowplowCookieName('testcookie')),
 
 			// Visitor fingerprint
-			userFingerprint = (argmap.userFingerprint === false) ? '' : detectors.detectSignature(configUserFingerprintHashSeed),
+			userFingerprint = (argmap.userFingerprint === false) ? '' : detectors.detectSignature(),
 
 			// Unique ID for the tracker instance used to mark links which are being tracked
 			trackerId = functionName + '_' + namespace,
