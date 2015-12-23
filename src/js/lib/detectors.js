@@ -39,20 +39,13 @@
 		murmurhash3_32_gc = require('murmurhash').v3,
 		tz = require('jstimezonedetect').jstz.determine(),
 		cookie = require('browser-cookie-lite'),
-		fingerprintjs2 = require('fingerprintjs2'),
 
 		object = typeof exports !== 'undefined' ? exports : this, // For eventual node.js environment support
 		
 		windowAlias = window,
 		navigatorAlias = navigator,
 		screenAlias = screen,
-		documentAlias = document,
-	    fingerprint = '';
-
-	    console.log('init');
-	    var fp_options = {'excludeCanvas': true, 'excludeWebGL': true, 'excludeFlashFonts': true};
-	    object.fingerprint = new fingerprintjs2(fp_options).get();
-	    console.log('object.fingerprint: ' + object.fingerprint);
+		documentAlias = document;
 
 	/*
 	 * Checks whether sessionStorage is available, in a way that
@@ -120,9 +113,7 @@
 	 * @return {number} 32-bit positive integer hash 
 	 */
 	object.detectSignature = function(hashSeed) {
-	    console.log('object.detectSignature: '+object.fingerprint);
-	    return object.fingerprint;
-        /**
+
 		var fingerprint = [
 			navigatorAlias.userAgent,
 			[ screenAlias.height, screenAlias.width, screenAlias.colorDepth ].join("x"),
@@ -145,7 +136,6 @@
 			}
 		}
 		return murmurhash3_32_gc(fingerprint.join("###") + "###" + plugins.sort().join(";"), hashSeed);
-		**/
 	};
 
 	/*
