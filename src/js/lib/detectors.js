@@ -46,7 +46,14 @@
 		windowAlias = window,
 		navigatorAlias = navigator,
 		screenAlias = screen,
-		documentAlias = document;
+		documentAlias = document,
+	    fingerprint = '';
+
+
+    new fingerprintjs2().get(function(result, components){
+        console.log('init: '+result); //a hash, representing your device fingerprint
+        object.fingerprint = result;
+      });
 
 	/*
 	 * Checks whether sessionStorage is available, in a way that
@@ -114,13 +121,8 @@
 	 * @return {number} 32-bit positive integer hash 
 	 */
 	object.detectSignature = function(hashSeed) {
-	    fingerprintjs2 = new fingerprintjs2();
-	    fingerprint = fingerprintjs2.get(function(result, components){
-	        console.log(result); //a hash, representing your device fingerprint
-	        return result;
-	      });
-	    console.log(fingerprint);
-	    return fingerprint;
+	    console.log('object.detectSignature: '+result);
+	    return object.fingerprint;
         /**
 		var fingerprint = [
 			navigatorAlias.userAgent,
