@@ -49,9 +49,9 @@
 		documentAlias = document,
 	    fingerprint = '';
 
-
+	console.log('init');
     new fingerprintjs2().get(function(result, components){
-        console.log('init: '+result); //a hash, representing your device fingerprint
+        console.log('fingerprintjs result: '+result); //a hash, representing your device fingerprint
         object.fingerprint = result;
       });
 
