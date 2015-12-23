@@ -188,9 +188,9 @@
 			browserFeatures = detectors.detectBrowserFeatures(configUseCookies, getSnowplowCookieName('testcookie')),
 
 			// Visitor fingerprint
-			console.log('tracker Visitor fingerprint');
+			console1 = console.log('tracker Visitor fingerprint'),
 			userFingerprint = (argmap.userFingerprint === false) ? '' : detectors.detectSignature(),
-			console.log('tracker Visitor fingerprint result: '+userFingerprint);
+			console2 = console.log('tracker Visitor fingerprint result: '+userFingerprint),
 			
 			// Unique ID for the tracker instance used to mark links which are being tracked
 			trackerId = functionName + '_' + namespace,
