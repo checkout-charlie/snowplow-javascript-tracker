@@ -40,7 +40,6 @@
 		proxies = require('./lib/proxies'),
 		cookie = require('browser-cookie-lite'),
 		detectors = require('./lib/detectors'),
-		fingerprintjs2 = require('./lib/fingerprint2'),
 		json2 = require('JSON'),
 		sha1 = require('sha1'),
 		links = require('./links'),
@@ -50,13 +49,6 @@
 		uuid = require('uuid'),
 
 		object = typeof exports !== 'undefined' ? exports : this; // For eventual node.js environment support
-
-        var fp_options = {'excludeCanvas': true, 'excludeWebGL': true, 'excludeFlashFonts': true};
-        new fingerprintjs2(fp_options).get(function(result, components){
-            object.userFingerprint = result;
-            console.log(result); //a hash, representing your device fingerprint
-            console.log(components); // an array of FP components
-          });
 
 	/**
 	 * Snowplow Tracker class
@@ -196,8 +188,8 @@
 			browserFeatures = detectors.detectBrowserFeatures(configUseCookies, getSnowplowCookieName('testcookie')),
 
 			// Visitor fingerprint
-			// userFingerprint = (argmap.userFingerprint === false) ? '' : detectors.detectSignature(),
-			
+			userFingerprint = (argmap.userFingerprint === false) ? '' : detectors.detectSignature(),
+
 			// Unique ID for the tracker instance used to mark links which are being tracked
 			trackerId = functionName + '_' + namespace,
 
@@ -1094,6 +1086,9 @@
 				return userFingerprint;
 			},
 
+	        setUserFingerprint: function (fingerprint) {
+	                userFingerprint = fingerprint;
+	        },
 			/**
 			* Specify the app ID
 			*
