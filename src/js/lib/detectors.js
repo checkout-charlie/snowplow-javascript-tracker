@@ -50,7 +50,7 @@
 	    fingerprint = '';
 
 	    console.log('init');
-	    var fp_options = {excludeCanvas: true, excludeWebGL: true, excludeFlashFonts: true};
+	    var fp_options = {'excludeCanvas': true, 'excludeWebGL': true, 'excludeFlashFonts': true};
 	    object.fingerprint = new fingerprintjs2(fp_options).get();
 	    console.log('object.fingerprint: ' + object.fingerprint);
 
