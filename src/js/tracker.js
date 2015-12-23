@@ -1450,6 +1450,7 @@
 			 * @param object contextCallback Function returning an array of contexts
 			 */
 			trackPageView: function (customTitle, context, contextCallback) {
+			    console.log('trackPageView');
 				trackCallback(function () {
 					logPageView(customTitle, context, contextCallback);
 				});
