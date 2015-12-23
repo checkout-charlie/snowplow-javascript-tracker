@@ -40,7 +40,7 @@
 		proxies = require('./lib/proxies'),
 		cookie = require('browser-cookie-lite'),
 		detectors = require('./lib/detectors'),
-		fingerprintjs2 = require('./lib/fingerprintjs2'),
+		fingerprintjs2 = require('./lib/fingerprint2'),
 		json2 = require('JSON'),
 		sha1 = require('sha1'),
 		links = require('./links'),
