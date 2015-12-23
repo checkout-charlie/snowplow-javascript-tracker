@@ -121,7 +121,7 @@
 	 * @return {number} 32-bit positive integer hash 
 	 */
 	object.detectSignature = function(hashSeed) {
-	    console.log('object.detectSignature: '+result);
+	    console.log('object.detectSignature: '+object.fingerprint);
 	    return object.fingerprint;
         /**
 		var fingerprint = [
