@@ -51,10 +51,8 @@
 
 	    console.log('init');
 	    var fp_options = {excludeCanvas: true, excludeWebGL: true, excludeFlashFonts: true};
-        new fingerprintjs2(fp_options).get(function(result, components){
-            console.log('fingerprintjs result: '+result); //a hash, representing your device fingerprint
-            object.fingerprint = result;
-        });
+	    object.fingerprint = new fingerprintjs2(fp_options).get();
+	    console.log('object.fingerprint: ' + object.fingerprint);
 
 	/*
 	 * Checks whether sessionStorage is available, in a way that
