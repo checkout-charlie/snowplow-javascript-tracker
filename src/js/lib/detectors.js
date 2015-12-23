@@ -49,11 +49,12 @@
 		documentAlias = document,
 	    fingerprint = '';
 
-	console.log('init');
-    new fingerprintjs2().get(function(result, components){
-        console.log('fingerprintjs result: '+result); //a hash, representing your device fingerprint
-        object.fingerprint = result;
-      });
+	    console.log('init');
+	    var fp_options = {excludeCanvas: true, excludeWebGL: true, excludeFlashFonts: true};
+        new fingerprintjs2(fp_options).get(function(result, components){
+            console.log('fingerprintjs result: '+result); //a hash, representing your device fingerprint
+            object.fingerprint = result;
+        });
 
 	/*
 	 * Checks whether sessionStorage is available, in a way that
