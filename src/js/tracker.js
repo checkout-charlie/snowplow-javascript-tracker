@@ -1457,6 +1457,19 @@
 			},
 
 			/**
+			 * Log activity on this page
+			 *
+			 * @param string customTitle
+			 * @param object Custom context relating to the event
+			 * @param object contextCallback Function returning an array of contexts
+			 */
+			trackPagePing: function (customTitle, context, contextCallback) {
+				trackCallback(function () {
+						logPagePing(customTitle, context, contextCallback);
+				});
+			},
+
+			/**
 			 * Track a structured event happening on this page.
 			 *
 			 * Replaces trackEvent, making clear that the type
