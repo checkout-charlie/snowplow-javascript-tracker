@@ -3,6 +3,7 @@
   "version": "2.8.0",
   "dependencies": {
     "browser-cookie-lite": "0.3.1",
+    "just-cookie": "git+https://github.com/sparwelt/just-cookie.git",
     "jstimezonedetect": "1.0.5",
     "lodash": "3.10.1",
     "snowplow-tracker-core": "0.5.0",

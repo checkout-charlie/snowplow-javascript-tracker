@@ -35,7 +35,7 @@
 
 	var 
 		lodash = require('../lib_managed/lodash'),
-		cookie = require('browser-cookie-lite'),
+		cookie = require('just-cookie'),
 
 		object = typeof exports !== 'undefined' ? exports : this; // For eventual node.js environment support
 

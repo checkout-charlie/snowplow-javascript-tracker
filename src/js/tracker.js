@@ -38,7 +38,7 @@
 		lodash = require('./lib_managed/lodash'),
 		helpers = require('./lib/helpers'),
 		proxies = require('./lib/proxies'),
-		cookie = require('browser-cookie-lite'),
+		cookie = require('just-cookie'),
 		detectors = require('./lib/detectors'),
 		sha1 = require('sha1'),
 		links = require('./links'),

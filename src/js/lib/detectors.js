@@ -38,7 +38,7 @@
 		lodash = require('../lib_managed/lodash'),
 		murmurhash3_32_gc = require('murmurhash').v3,
 		tz = require('jstimezonedetect').jstz.determine(),
-		cookie = require('browser-cookie-lite'),
+		cookie = require('just-cookie'),
 
 		object = typeof exports !== 'undefined' ? exports : this, // For eventual node.js environment support
 		
