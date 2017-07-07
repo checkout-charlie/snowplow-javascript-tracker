@@ -474,7 +474,7 @@
 				return helpers.attemptGetLocalStorage(cookieName);
 			} else if (configStateStorageStrategy == 'cookie' ||
 					configStateStorageStrategy == 'cookieAndLocalStorage') {
-				return cookie.cookie(getSnowplowCookieName(cookieName));
+				return cookie(getSnowplowCookieName(cookieName));
 			}
 		}
 
@@ -593,7 +593,7 @@
 				helpers.attemptWriteLocalStorage(name, value);
 			} else if (configStateStorageStrategy == 'cookie' ||
 					configStateStorageStrategy == 'cookieAndLocalStorage') {
-				cookie.cookie(name, value, timeout, configCookiePath, configCookieDomain);
+				cookie(name, value, timeout, configCookiePath, configCookieDomain);
 			}
 		}
 
@@ -1349,7 +1349,7 @@
 		function getGaCookiesContext() {
 			var gaCookieData = {};
 			lodash.forEach(['__utma', '__utmb', '__utmc', '__utmv', '__utmz', '_ga'], function (cookieType) {
-				var value = cookie.cookie(cookieType);
+				var value = cookie(cookieType);
 				if (value) {
 					gaCookieData[cookieType] = value;
 				}
@@ -1967,7 +1967,7 @@
 			 * @param string cookieName Name of the cookie whose value will be assigned to businessUserId
 			 */
 			setUserIdFromCookie: function(cookieName) {
-				businessUserId = cookie.cookie(cookieName);
+				businessUserId = cookie(cookieName);
 			},
 
 			/**

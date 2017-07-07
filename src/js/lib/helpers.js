@@ -303,8 +303,8 @@
 		var position = split.length - 1;
 		while (position >= 0) {
 			var currentDomain = split.slice(position, split.length).join('.');
-			cookie.cookie(cookieName, cookieValue, 0, '/', currentDomain);
-			if (cookie.cookie(cookieName) === cookieValue) {
+			cookie(cookieName, cookieValue, 0, '/', currentDomain);
+			if (cookie(cookieName) === cookieValue) {
 
 				// Clean up created cookie(s)
 				object.deleteCookie(cookieName, currentDomain);
@@ -345,7 +345,7 @@
 	 * @param domainName The domain the cookie is in
 	 */
 	object.deleteCookie = function (cookieName, domainName) {
-		cookie.cookie(cookieName, '', -1, '/', domainName);
+		cookie(cookieName, '', -1, '/', domainName);
 	};
 
 	/**

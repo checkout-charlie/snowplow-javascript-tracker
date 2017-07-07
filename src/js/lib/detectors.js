@@ -99,8 +99,8 @@
 		var cookieName = testCookieName || 'testcookie';
 
 		if (lodash.isUndefined(navigatorAlias.cookieEnabled)) {
-			cookie.cookie(cookieName, '1');
-			return cookie.cookie(cookieName) === '1' ? '1' : '0';
+			cookie(cookieName, '1');
+			return cookie(cookieName) === '1' ? '1' : '0';
 		}
 
 		return navigatorAlias.cookieEnabled ? '1' : '0';
