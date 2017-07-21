@@ -2046,6 +2046,7 @@
 			 * @param object contextCallback Function returning an array of contexts
 			 */
 			trackPagePing: function (customTitle, context, contextCallback) {
+			    resetMaxScrolls()
 				trackCallback(function () {
 						logPagePing(customTitle, context, contextCallback);
 				});
