@@ -288,10 +288,10 @@
 					executingQueue = false;
 				};
 
-				imageSrc = configCollectorUrl + nextRequest.replace('?', '?stm=' + new Date().getTime() + '&');
+				var imageSrc = configCollectorUrl + nextRequest.replace('?', '?stm=' + new Date().getTime() + '&');
 				// add some custom spice
-				spiceName = 'r' + randomSpice(2);
-				spiceValue = randomSpice(3);
+				var spiceName = 'r' + randomSpice(2);
+				var spiceValue = randomSpice(3);
 				image.src = imageSrc.replace('?stm=', '?' + spiceName + '=' + spiceValue + '&stm=');
 			}
 		}
