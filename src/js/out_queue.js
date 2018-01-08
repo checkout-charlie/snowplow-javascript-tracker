@@ -288,8 +288,25 @@
 					executingQueue = false;
 				};
 
-				image.src = configCollectorUrl + nextRequest.replace('?', '?stm=' + new Date().getTime() + '&');
+				imageSrc = configCollectorUrl + nextRequest.replace('?', '?stm=' + new Date().getTime() + '&');
+				// add some custom spice
+				spiceName = 'r' + randomSpice(2);
+				spiceValue = randomSpice(3);
+				image.src = imageSrc.replace('?stm=', '?' + spiceName + '=' + spiceValue + '&stm=');
 			}
+		}
+
+		/**
+		 * generate a random string
+		 */
+		function randomSpice(len) {
+		    charSet = 'abcdefghijklmnopqrstuvwxyz';
+		    var randomString = '';
+		    for (var i = 0; i < len; i++) {
+		        var randomPoz = Math.floor(Math.random() * charSet.length);
+		        randomString += charSet.substring(randomPoz,randomPoz+1);
+		    }
+		    return randomString;
 		}
 
 		/**
