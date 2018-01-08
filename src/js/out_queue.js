@@ -300,7 +300,7 @@
 		 * generate a random string
 		 */
 		function randomSpice(len) {
-		    charSet = 'abcdefghijklmnopqrstuvwxyz';
+		    var charSet = 'abcdefghijklmnopqrstuvwxyz';
 		    var randomString = '';
 		    for (var i = 0; i < len; i++) {
 		        var randomPoz = Math.floor(Math.random() * charSet.length);
