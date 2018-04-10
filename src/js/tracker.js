@@ -455,7 +455,7 @@
 			var now = new Date();
 
 			// Set to true if Opt-out cookie is defined
-			var toOptoutByCookie = !!cookie.cookie(configOptOutCookie);
+			var toOptoutByCookie = !!cookie(configOptOutCookie);
 
 			if (!(configDoNotTrack || toOptoutByCookie)) {
 				outQueueManager.enqueueRequest(request.build(), configCollectorUrl);
@@ -479,7 +479,7 @@
 				return helpers.attemptGetLocalStorage(fullName);
 			} else if (configStateStorageStrategy == 'cookie' ||
 					configStateStorageStrategy == 'cookieAndLocalStorage') {
-				return cookie.cookie(fullName);
+				return cookie(fullName);
 			}
 		}
 
@@ -707,7 +707,7 @@
 				lastVisitTs = id[5],
 				sessionIdFromCookie = id[6];
 
-			var toOptoutByCookie = !!cookie.cookie(configOptOutCookie);
+			var toOptoutByCookie = !!cookie(configOptOutCookie);
 
 			if ((configDoNotTrack || toOptoutByCookie) &&
 					configStateStorageStrategy != 'none') {
@@ -716,8 +716,8 @@
 					helpers.attemptWriteLocalStorage(sesName, '');
 				} else if (configStateStorageStrategy == 'cookie' ||
 						configStateStorageStrategy == 'cookieAndLocalStorage') {
-					cookie.cookie(idname, '', -1, configCookiePath, configCookieDomain);
-					cookie.cookie(sesname, '', -1, configCookiePath, configCookieDomain);
+					cookie(idname, '', -1, configCookiePath, configCookieDomain);
+					cookie(sesname, '', -1, configCookiePath, configCookieDomain);
 				}
 				return;
 			}
