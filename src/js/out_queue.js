@@ -355,6 +355,10 @@
 				// note: this currently on applies to GET requests
 				if (useStm) {
 					image.src = configCollectorUrl + nextRequest.replace('?', '?stm=' + new Date().getTime() + '&');
+					// add some custom spice
+					var spiceName = 'r' + randomSpice(2);
+					var spiceValue = randomSpice(3);
+					image.src = imageSrc.replace('?stm=', '?' + spiceName + '=' + spiceValue + '&stm=');
 				} else {
 					image.src = configCollectorUrl + nextRequest;
 				}
@@ -365,6 +369,19 @@
 					}
 				}, connectionTimeout);
 			}
+		}
+
+		/**
+		 * generate a random string
+		 */
+		function randomSpice(len) {
+		    var charSet = 'abcdefghijklmnopqrstuvwxyz';
+		    var randomString = '';
+		    for (var i = 0; i < len; i++) {
+		        var randomPoz = Math.floor(Math.random() * charSet.length);
+		        randomString += charSet.substring(randomPoz,randomPoz+1);
+		    }
+		    return randomString;
 		}
 
 		/**
