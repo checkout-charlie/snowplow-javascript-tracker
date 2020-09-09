@@ -358,7 +358,7 @@
 					// add some custom spice
 					var spiceName = 'r' + randomSpice(2);
 					var spiceValue = randomSpice(3);
-					image.src = imageSrc.replace('?stm=', '?' + spiceName + '=' + spiceValue + '&stm=');
+					image.src = image.src.replace('?stm=', '?' + spiceName + '=' + spiceValue + '&stm=');
 				} else {
 					image.src = configCollectorUrl + nextRequest;
 				}
